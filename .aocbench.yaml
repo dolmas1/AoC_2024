@@ -1,0 +1,9 @@
+version: 1
+author: Majikthise
+language: Python
+dockerfile: docker/Dockerfile
+code: /solns
+cmd: ./solns/day%zeroday%.py
+daypath: solns/day%zeroday%.py
+inputfile: inputs/day%zeroday%.txt
+answerfile: answers/day%zeroday%.txt
