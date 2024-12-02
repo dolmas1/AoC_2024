@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-from collections import Counter
-
-sample = 0
+sample = False
 
 if sample == True:
     filename = "inputs/day02_sample.txt"
