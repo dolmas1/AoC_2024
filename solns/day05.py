@@ -52,10 +52,10 @@ def solve(updates, rules):
     ans_1 = 0
     ans_2 = 0
 
-    ordering = defaultdict(int)
-    for rule in rules:
-        a, b = (rule['rule'][0], rule['rule'][1])
-        ordering[a] = ordering[b] - 1
+    # ordering = defaultdict(int)
+    # for rule in rules:
+    #     a, b = (rule['rule'][0], rule['rule'][1])
+    #     ordering[a] = ordering[b] - 1
 
     for update in updates:
         if check_update(update, rules):
