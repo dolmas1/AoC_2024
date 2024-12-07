@@ -82,7 +82,7 @@ def solve(puzzle_input):
         
         loc, facing, done, alternate_state = step(puzzle_input, loc, facing, done)
         
-        if alternate_state and (potential_blocker not in potential_blockers):
+        if alternate_state and (potential_blocker not in potential_blockers) and (potential_blocker not in visited_squares):
             
             potential_blockers.append(potential_blocker)
             
