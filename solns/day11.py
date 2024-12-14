@@ -6,8 +6,6 @@ if sample == True:
 else:
     filename = "inputs/day11.txt"
 
-from collections import defaultdict
-
 def parse_input(filename):
     with open(filename) as f:
         puzzle_input = []
@@ -29,21 +27,27 @@ def process_stone(stone):
             return [int(stone)*2024]
 
 def process_line(current_state, memory):
-    new_state = defaultdict(int)
+    new_state = {}
     for stone, reps in current_state.items():
         
-        if stone not in memory.keys():
+        if stone not in memory:
             memory[stone] = process_stone(stone)
         new_stones = memory[stone]
         for s in new_stones:
-            new_state[s] += reps
+            if s in new_state:
+                new_state[s] += reps
+            else:
+                new_state[s] = reps
     return new_state, memory
 
 def solve(filename):
     puzzle_input = parse_input(filename)
-    current_state = defaultdict(int)
+    current_state = {}
     for stone in puzzle_input:
-        current_state[stone] += 1
+        if stone in current_state:
+            current_state[stone] += 1
+        else:
+            current_state[stone] = 1
     memory = {}
     ans = []
     for i in range(75):
