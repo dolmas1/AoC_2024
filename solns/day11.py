@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-from collections import defaultdict
-
 sample = False
 
 if sample == True:
     filename = "inputs/day11_sample.txt"
 else:
     filename = "inputs/day11.txt"
+
+from collections import defaultdict
 
 def parse_input(filename):
     with open(filename) as f:
@@ -32,7 +32,7 @@ def process_line(current_state, memory):
     new_state = defaultdict(int)
     for stone, reps in current_state.items():
         
-        if stone not in memory:
+        if stone not in memory.keys():
             memory[stone] = process_stone(stone)
         new_stones = memory[stone]
         for s in new_stones:
